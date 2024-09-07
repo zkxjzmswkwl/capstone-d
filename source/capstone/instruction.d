@@ -24,6 +24,10 @@ public:
     auto address() const {return internal.address;}
 	/// Machine bytes of this instruction
     auto bytes() const {return internal.bytes[0..internal.size];}
+    /// zkxjzmswkwl: Patch. Fuck const I wanna hack shit
+    void setByte(size_t index, ubyte val) {
+        internal.bytes[index] = val;
+    }
 	/// Ascii text of instruction mnemonic
     auto mnemonic() const {return internal.mnemonic.ptr.to!string;}
 	/// Ascii text of instruction operands
